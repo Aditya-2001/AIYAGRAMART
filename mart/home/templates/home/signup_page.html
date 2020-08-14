@@ -1,0 +1,109 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title>Signup</title>
+    <!-- Bootstrap core CSS -->
+    <link href="{% static 'css/bootstrap.css' %}" rel="stylesheet">
+    <!-- Fontawesome core CSS -->
+    <link href="{% static 'css/font-awesome.min.css' %}" rel="stylesheet" />
+    <!--GOOGLE FONT -->
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
+    <!--Slide Show Css -->
+    <link href="{% static 'css/main-style.css' %}" rel="stylesheet" />
+    <link href="{% static 'css/signup.css' %}" rel="stylesheet" />
+    <!-- custom CSS here -->
+    <link href="{% static 'css/style.css' %}" rel="stylesheet" />
+</head>
+<body>
+    <nav class="navbar navbar-default" role="navigation">
+        <div class="container-fluid">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="{% url 'home' %}"><strong>AIYAGRAMART</strong></a>
+            </div></div></nav>
+               
+            {% if wrong_email %}
+            <br><br>
+            <marquee scrollamount="5">This email is already registered</marquee>
+			{% endif %}
+            {% if wrong_username %}
+            <br><br>
+			<marquee scrollamount="5">Try different Username</marquee>
+			{% endif %}
+            {% if wrong_password %}
+            <br><br>
+			<marquee scrollamount="20">Password does not matched or is not in too short and common</marquee>
+            {% endif %}
+            
+    <form action="{% url 'create_user' %}" method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+        <div class="container">
+          <h1 style="text-align: center;">Registeration Page</h1>
+          <p style="text-align: center;">Please fill in this form to create an account.</p>
+          <hr>
+          <div class="col-md-6">
+            <label for="first_name"><b>First Name</b></label>
+            <input type="text" placeholder="First Name" name="first_name" required> 
+        </div>
+        <div class="col-md-6">
+            <label for="last_name"><b>Last Name</b></label>
+            <input type="text" placeholder="Last Name" name="last_name" required> 
+        </div>
+        <div class="col-md-6">
+            <label for="uname"><b>Username</b></label>
+            <input type="text" placeholder="Username" name="username" required> 
+        </div>
+        <div class="col-md-6">
+          <label for="email"><b>Email</b></label>
+          <input type="text" placeholder="Enter Email" name="email" id="email" required>
+        </div>
+        <div class="col-md-6">
+            <label for="password1"><b>Password</b></label>
+            <input type="password" name="password1" required> 
+        </div>
+        <div class="col-md-6">
+            <label for="password2"><b>Confirm Password</b></label>
+            <input type="password" name="password2" required> 
+        </div>
+          <p>By creating an account you agree to our <a href="{% url 'terms' %}">Terms & Privacy</a>.</p>
+          <button type="submit" class="registerbtn">Register</button>
+        </div>
+      
+        <div class="container signin">
+          <p>Already have an account? <a href="{% url 'login_request' %}">Sign in</a>.</p>
+        </div>
+      </form>
+
+    <!-- /.col -->
+    <div class="col-md-12 end-box ">
+        &copy; 2020 | &nbsp; All Rights Reserved | &nbsp; 24x7 support | &nbsp; Email us: aditya.iiita2001@gmail.com
+    </div>
+    <!-- /.col -->
+    <!--Footer end -->
+    <!--Core JavaScript file  -->
+    <script src="{% static 'js/jquery-1.10.2.js' %}"></script>
+    <!--bootstrap JavaScript file  -->
+    <script src="{% static 'js/bootstrap.js' %}"></script>
+    <!--Slider JavaScript file  -->
+    <script src="{% static 'js/modernizr.custom.63321.js' %}"></script>
+    <script src="{% static 'js/jquery.catslider.js' %}"></script>
+    <script>
+        $(function () {
+
+            $('#mi-slider').catslider();
+
+        });
+		</script>
+</body>
+</html>
