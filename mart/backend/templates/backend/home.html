@@ -1,0 +1,114 @@
+{% load static %}
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<title>BACKEND</title>
+		<meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+        <link rel="stylesheet" href="{% static 'css_backend/main.css' %}" />
+        <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+        <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+        <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+        <style>
+            table {
+              font-family: arial, sans-serif;
+              border-collapse: collapse;
+              width: 100%;
+            }
+            
+            td, th {
+              border: 1px solid #dddddd;
+              text-align: left;
+              padding: 8px;
+            }
+            
+            tr:nth-child(even) {
+              background-color: #dddddd;
+            }
+            </style>
+	</head>
+	<body class="subpage">
+
+		<!-- Header -->
+			<header id="header" class="alt" style="background-color: #0e5e9d">
+				<div class="logo"><a href="{% url 'mart' %}">AIYAGRAMART  <span>Backend</span></a></div>
+				<a href="#menu"><span>Menu</span></a>
+			</header>
+
+		<!-- Nav -->
+			<nav id="menu" style="background-color: #0e5e9d;">
+				<ul class="links">
+                    {% if request.user.is_authenticated and request.user.is_staff and request.user.is_superuser %}
+					<li>Hi, {{request.user}}</li>
+                    {% endif %}
+                    <br>
+					<li><a href="{% url 'mart' %}">Go to Mart</a></li>
+					<li><a href="#">Add Product</a></li>
+					<li><a href="{% url 'logout_request' %}">Logout</a></li>
+				</ul>
+            </nav>
+            <h1>Just to show a table but to be edited later on.</h1>
+            <table>
+                <tr>
+                  <th>Company</th>
+                  <th>Contact</th>
+                  <th>Country</th>
+                </tr>
+                <tr>
+                  <td>Alfreds Futterkiste</td>
+                  <td>Maria Anders</td>
+                  <td>Germany</td>
+                </tr>
+                <tr>
+                  <td>Centro comercial Moctezuma</td>
+                  <td>Francisco Chang</td>
+                  <td>Mexico</td>
+                </tr>
+                <tr>
+                  <td>Ernst Handel</td>
+                  <td>Roland Mendel</td>
+                  <td>Austria</td>
+                </tr>
+                <tr>
+                  <td>Island Trading</td>
+                  <td>Helen Bennett</td>
+                  <td>UK</td>
+                </tr>
+                <tr>
+                  <td>Laughing Bacchus Winecellars</td>
+                  <td>Yoshi Tannamuri</td>
+                  <td>Canada</td>
+                </tr>
+                <tr>
+                  <td>Magazzini Alimentari Riuniti</td>
+                  <td>Giovanni Rovelli</td>
+                  <td>Italy</td>
+                </tr>
+              </table>
+              
+
+
+
+            <!-- Footer -->
+		<footer id="footer" style="background-color: #0e5e9d;">
+			<div class="inner">
+
+			
+				<div class="copyright">
+					&copy; Copyrights reserved : Aditya Aggarwal
+				</div>
+
+			</div>
+		</footer>
+
+		<!-- Scripts -->
+			<script src="{% static 'js_backend/jquery.min.js' %}"></script>
+			<script src="{% static 'js_backend/jquery.scrolly.min.js' %}"></script>
+			<script src="{% static 'js_backend/jquery.scrollex.min.js' %}"></script>
+			<script src="{% static 'js_backend/skel.min.js' %}"></script>
+			<script src="{% static 'js_backend/util.js' %}"></script>
+			<script src="{% static 'js_backend/main.js' %}"></script>
+
+	</body>
+</html>
