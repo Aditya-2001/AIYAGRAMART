@@ -62,3 +62,7 @@ def create_user(request):
                     return render(request,"home/signup_page.html",context={"wrong_password": True, "error": form.errors})
     else:
         return HttpResponse("<h1>404: ERROR- This page can not be accessed by anyone</h1>")
+
+def logout_request(request):
+    logout(request)
+    return redirect('home')
