@@ -6,15 +6,15 @@ from django.contrib.auth import login,authenticate,logout
 
 def login_request(request):
     if request.user.is_authenticated and request.user.is_staff and request.user.is_superuser:
-        return redirect('home')
+        return redirect('backend_home')
     else:
         return render(request,"backend/login_page.html",context={})
 
 def mart(request):
     return render(request,"home/home_page.html",context={})
 
-def home(request):
-    return render(request,"backend/home.html",context={})
+def backend_home(request):
+    return render(request,"backend/backend_home.html",context={})
 
 def logout_request(request):
     logout(request)
@@ -30,7 +30,7 @@ def check_user(request):
             if user.is_staff:
                 if user.is_superuser:
                     login(request, user)
-                    return redirect('home')
+                    return redirect('backend_home')
                 else:
                     return render(request,"backend/login_page.html",context={"user_is_not_admin": True})
             else:
