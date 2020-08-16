@@ -66,3 +66,6 @@ def create_user(request):
 def logout_request(request):
     logout(request)
     return redirect('home')
+
+def merchant(request):
+    return render(request,"merchant/login_request_merchant.html",context={})

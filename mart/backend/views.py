@@ -11,7 +11,7 @@ def login_request(request):
         return render(request,"backend/login_page.html",context={})
 
 def mart(request):
-    return render(request,"home/home_page.html",context={})
+    return redirect('home')
 
 def backend_home(request):
     return render(request,"backend/backend_home.html",context={})

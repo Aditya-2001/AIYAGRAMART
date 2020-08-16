@@ -1,0 +1,90 @@
+{% load static %}
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<title>Merchant Registration</title>
+		<meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+        <link rel="stylesheet" href="{% static 'css_backend/main.css' %}" />
+        <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+        <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+        <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+	</head>
+	<body class="subpage">
+
+		<!-- Header -->
+			<header id="header" class="alt" style="background-color: #0e5e9d">
+				<div class="logo"><a href="{% url 'mart' %}">AIYAGRAMART  <span>Merchant Panel</span></a></div>
+				<a href="#menu"><span>Menu</span></a>
+			</header>
+
+		<!-- Nav -->
+			<nav id="menu" style="background-color: #0e5e9d;">
+				<ul class="links">
+					<li><a href="{% url 'mart_merchant' %}">Go to Mart</a></li>
+				</ul>
+			</nav>
+
+			{% if user_is_not_staff %}
+			<br><br>
+			<marquee scrollamount="10">Error: User you do not have staff access, kindly return to mart.</marquee>
+			{% endif %}
+			{% if error %}
+			<br><br>
+			<marquee scrollamount="10">Error: Username and Password doesn't matched: TRY AGAIN</marquee>
+			{% endif %}
+            
+    <div id="login">
+        <h3 class="text-center text-white pt-5">Login form</h3>
+        <div class="container">
+            <div id="login-row" class="row justify-content-center align-items-center">
+                <div id="login-column" class="col-md-6">
+                    <div id="login-box" class="col-md-12">
+
+                        <form id="login-form" class="form" action="{% url 'check_user_merchant' %}" method="post">
+							{% csrf_token %}
+                            <h3 class="text-center text-info">User login here to add a product</h3>
+                            <br>
+                            <div class="form-group">
+                                <label for="username" class="text-info">Username:</label><br>
+                                <input type="text" name="username" id="username" class="form-control" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="password" class="text-info">Password:</label><br>
+                                <input type="password" name="password" id="password" class="form-control" required>
+                            </div>
+                            <div class="form-group">
+                                <input type="submit" name="submit" class="btn btn-info btn-md" value="Login">
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+		<!-- Footer -->
+		<footer id="footer" style="background-color: #0e5e9d;">
+			<div class="inner">
+
+			
+				<div class="copyright">
+					&copy; Copyrights reserved : Aditya Aggarwal
+				</div>
+
+			</div>
+		</footer>
+
+		<!-- Scripts -->
+			<script src="{% static 'js_backend/jquery.min.js' %}"></script>
+			<script src="{% static 'js_backend/jquery.scrolly.min.js' %}"></script>
+			<script src="{% static 'js_backend/jquery.scrollex.min.js' %}"></script>
+			<script src="{% static 'js_backend/skel.min.js' %}"></script>
+			<script src="{% static 'js_backend/util.js' %}"></script>
+			<script src="{% static 'js_backend/main.js' %}"></script>
+
+	</body>
+</html>
