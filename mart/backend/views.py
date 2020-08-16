@@ -4,7 +4,7 @@ from django.contrib import messages
 from django.contrib.auth import login,authenticate,logout
 # Create your views here.
 
-def login_request(request):
+def login_request_backend(request):
     if request.user.is_authenticated and request.user.is_staff and request.user.is_superuser:
         return redirect('backend_home')
     else:
@@ -16,9 +16,9 @@ def mart(request):
 def backend_home(request):
     return render(request,"backend/backend_home.html",context={})
 
-def logout_request(request):
+def logout_request_backend(request):
     logout(request)
-    return redirect('login_request')
+    return redirect('login_request_backend')
 
 def check_user(request):
     if request.method == "POST":

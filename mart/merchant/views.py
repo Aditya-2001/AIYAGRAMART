@@ -2,6 +2,8 @@ from django.shortcuts import render,HttpResponse,redirect
 from django.contrib.auth.models import User
 from django.contrib import messages
 from django.contrib.auth import login,authenticate,logout
+from home.models import Product
+from home.forms import UserForm
 
 # Create your views here.
 def login_request_merchant(request):
@@ -35,5 +37,35 @@ def check_user_merchant(request):
         else:
             return render(request,"merchant/login_request_merchant.html",context={"error": True})
     
+    else:
+        return HttpResponse("<h1>404: ERROR- This page can not be accessed by anyone</h1>")
+
+def register_merchant(request):
+    return render(request,"merchant/register_merchant.html",context={})
+
+def find_user_merchant(request):
+    if request.method == "POST":
+        form = UserForm(request.POST)
+        username=request.POST.get("username")
+        email=request.POST.get("email")
+        try:
+            checker = User.objects.get(email=email)
+            return render(request,"merchant/register_merchant.html",context={"wrong_email": True})
+        except:
+            try:
+                checker = User.objects.get(username=username)
+                return render(request,"merchant/register_merchant.html",context={"wrong_username": True})
+            except:
+                if form.is_valid():
+                    first_name = request.POST.get("first_name")
+                    last_name = request.POST.get("last_name")   
+                    password = request.POST.get("password2")
+                    user = User.objects.create(username=username, email=email, first_name=first_name, last_name=last_name)
+                    user.set_password(password)
+                    user.is_staff=True
+                    user.save()
+                    return redirect('login_request_merchant')
+                else:
+                    return render(request,"merchant/register_merchant.html",context={"wrong_password": True})
     else:
         return HttpResponse("<h1>404: ERROR- This page can not be accessed by anyone</h1>")

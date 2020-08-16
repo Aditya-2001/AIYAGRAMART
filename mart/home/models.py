@@ -1,4 +1,3 @@
-from django.db import models
 
 # Create your models here.
 from django.db import models
@@ -16,6 +15,11 @@ class Product(models.Model):
     company_email=models.EmailField(max_length=50)
     price=models.FloatField()
     total_numberof_products=models.IntegerField()
+    image_1=models.ImageField(null=True, blank=True, upload_to='post_images/')
+    image_2=models.ImageField(null=True, blank=True, upload_to='post_images/')
+    image_3=models.ImageField(null=True, blank=True, upload_to='post_images/')
+    image_4=models.ImageField(null=True, blank=True, upload_to='post_images/')
+    image_5=models.ImageField(null=True, blank=True, upload_to='post_images/')
 
     def __str__(self):
         return self.name

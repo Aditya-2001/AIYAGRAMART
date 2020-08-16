@@ -2,7 +2,7 @@
 <!DOCTYPE HTML>
 <html>
 	<head>
-		<title>Merchant Panel</title>
+		<title>Merchant Registration</title>
 		<meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
@@ -10,55 +10,46 @@
         <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
         <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
         <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-        <style>
-            table {
-              font-family: arial, sans-serif;
-              border-collapse: collapse;
-              width: 100%;
-            }
-            
-            td, th {
-              border: 1px solid #dddddd;
-              text-align: left;
-              padding: 8px;
-            }
-            
-            tr:nth-child(even) {
-              background-color: #dddddd;
-            }
-            </style>
 	</head>
 	<body class="subpage">
 
 		<!-- Header -->
 			<header id="header" class="alt" style="background-color: #0e5e9d">
-				<div class="logo"><a href="{% url 'mart_merchant' %}">AIYAGRAMART  <span>Merchant Panel</span></a></div>
+				<div class="logo"><a href="{% url 'mart' %}">AIYAGRAMART  <span>Merchant Panel</span></a></div>
 				<a href="#menu"><span>Menu</span></a>
 			</header>
 
 		<!-- Nav -->
 			<nav id="menu" style="background-color: #0e5e9d;">
 				<ul class="links">
-                    {% if request.user.is_authenticated and request.user.is_staff %}
-					<li>Hi, {{request.user}}</li>
-                    {% endif %}
-                    <br>
 					<li><a href="{% url 'mart_merchant' %}">Go to Mart</a></li>
-					<li><a href="#">Add Product</a></li>
-					<li><a href="{% url 'logout_request_merchant' %}">Logout</a></li>
 				</ul>
-            </nav>
-          
+			</nav>
 
-            <!-- FORM-->
-			<div id="login">
+			{% if wrong_email %}
+			<br><br>
+			<marquee scrollamount="10">Error: User this email is already registered.</marquee>
+			{% endif %}
+			{% if username %}
+			<br><br>
+			<marquee scrollamount="10">Error: Username already exists in the database.</marquee>
+            {% endif %}
+            {% if wrong_password %}
+            <br><br>
+            <marquee scrollamount="10">Error: Both passwords does not matched.</marquee>
+            {% endif %}
+            
+
+
+            <div id="login">
+				<h3 class="text-center text-white pt-5">Registration form</h3>
 				<div class="container">
 					<div id="login-row" class="row justify-content-center align-items-center">
 						<div id="login-column" class="col-md-6">
 							<div id="login-box" class="col-md-12">
-								<form id="login-form" class="form" action="#" method="POST" enctype="multipart/form-data">
+								<form id="login-form" class="form" action="{% url 'check_user_merchant' %}" method="POST" enctype="multipart/form-data">
 									{% csrf_token %}
-									<h3 class="text-center text-info">Fill this form to add a Product in the mart, but it is under contruction</h3>
+									<h3 class="text-center text-info">User register here to create a merchant account</h3>
 									<br>
 									<div class="form-group">
 										<label for="first_name" class="text-info">First Name:</label><br>
@@ -94,11 +85,8 @@
 					</div>
 				</div>
 			</div>
-              
 
-
-
-            <!-- Footer -->
+		<!-- Footer -->
 		<footer id="footer" style="background-color: #0e5e9d;">
 			<div class="inner">
 
