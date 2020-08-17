@@ -30,10 +30,12 @@ class ProductForm(ModelForm):
             "company_contact_number",
             "company_email",
             "price",
-            "total_numberof_products",
+            "stock",
+            "search_tags",
             "image_1",
             "image_2",
             "image_3",
             "image_4",
             "image_5",
+            "created_at",
         ]
