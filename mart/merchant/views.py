@@ -3,7 +3,7 @@ from django.contrib.auth.models import User
 from django.contrib import messages
 from django.contrib.auth import login,authenticate,logout
 from home.models import Product
-from home.forms import UserForm
+from home.forms import UserForm,ProductForm
 
 # Create your views here.
 def login_request_merchant(request):
@@ -67,5 +67,17 @@ def find_user_merchant(request):
                     return redirect('login_request_merchant')
                 else:
                     return render(request,"merchant/register_merchant.html",context={"wrong_password": True})
+    else:
+        return HttpResponse("<h1>404: ERROR- This page can not be accessed by anyone</h1>")
+
+def create_product_merchant(request):
+    if request.method =="POST":
+        form=ProductForm(request.POST, request.FILES)
+        print(form.is_valid())
+        if form.is_valid():
+            form.save()        
+            return redirect('mart_merchant')
+        else:
+            return HttpResponse("<h1>This product can't be added</h1>")
     else:
         return HttpResponse("<h1>404: ERROR- This page can not be accessed by anyone</h1>")

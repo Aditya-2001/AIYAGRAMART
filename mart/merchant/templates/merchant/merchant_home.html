@@ -51,39 +51,76 @@
           
 
             <!-- FORM-->
-			<div id="login">
+			<div id="product">
 				<div class="container">
 					<div id="login-row" class="row justify-content-center align-items-center">
 						<div id="login-column" class="col-md-6">
 							<div id="login-box" class="col-md-12">
-								<form id="login-form" class="form" action="#" method="POST" enctype="multipart/form-data">
+								<form id="login-form" class="form" action="{% url 'create_product_merchant' %}" method="POST" enctype="multipart/form-data">
 									{% csrf_token %}
-									<h3 class="text-center text-info">Fill this form to add a Product in the mart, but it is under contruction</h3>
+									<h3 class="text-center text-info">Fill this form to add a Product in the mart</h3>
 									<br>
 									<div class="form-group">
-										<label for="first_name" class="text-info">First Name:</label><br>
-										<input type="text" name="first_name" class="form-control" required>
+										<label for="product_name" class="text-info">Product Name</label><br>
+										<input type="text" name="name" class="form-control" required>
 									</div>
 									<div class="form-group">
-										<label for="last_name" class="text-info">Last Name:</label><br>
-										<input type="text" name="last_name" class="form-control" required>
+										<label for="description" class="text-info">Brief Description of the product:</label><br>
+										<input type="text" name="description" class="form-control" required>
 									</div>
 									<div class="form-group">
-										<label for="username" class="text-info">Username:</label><br>
-										<input type="text" name="username" id="username" class="form-control" required>
+										<label for="warranty_time_in_months" class="text-info">Warranty time(in months)</label><br>
+										<input type="number" name="warranty_time_in_months" class="form-control" required>
 									</div>
 									<div class="form-group">
-										<label for="email" class="text-info">Email:</label><br>
-										<input type="email" name="email" id="email" class="form-control" required>
+										<label for="manufacturing_date" class="text-info">Manufacturing Date of Product</label><br>
+										<input type="date" name="manufacturing_date" class="form-control" required>
 									</div>
 									<div class="form-group">
-										<label for="password1" class="text-info">Password:</label><br>
-										<input type="password" name="password1" id="password" class="form-control" required> Atleast 8 characters with integers
+										<label for="manufacturing_company" class="text-info">Manufacturing Company of Product</label><br>
+										<input type="text" name="manufacturing_company" class="form-control" required>
+									</div>
+									<div class="form-group">
+										<label for="company_contact_number" class="text-info">Contact Number of Company</label><br>
+										<input type="number" name="company_contact_number" class="form-control" required>
+									</div>
+									<div class="form-group">
+										<label for="company_email" class="text-info">Email of Company</label><br>
+										<input type="email" name="company_email" class="form-control" required>
+									</div>
+									<div class="form-group">
+										<label for="price" class="text-info">Product Price:</label><br>
+										<input type="number" name="price" class="form-control" required>
+									</div>
+									<div class="form-group">
+										<label for="stock" class="text-info">Stock of this product avaiable:</label><br>
+										<input type="number" name="stock" class="form-control" required>
+									</div>
+									<div class="form-group">
+										<label for="search_tags" class="text-info">Search Tags of Product:</label><br>
+										<input type="text" name="search_tags" class="form-control" required>
 									</div>
 									<br>
+									Add some pictures of the Product:
 									<div class="form-group">
-										<label for="password2" class="text-info">Confirm Password:</label><br>
-										<input type="password" name="password2" id="password" class="form-control" required>
+										<label for="image_1" class="text-info">Image 1</label><br>
+										<input type="file" name="image_1" class="form-control" required>
+									</div>
+									<div class="form-group">
+										<label for="image_2" class="text-info">Image 2</label><br>
+										<input type="file" name="image_2" class="form-control" required>
+									</div>
+									<div class="form-group">
+										<label for="image_3" class="text-info">Image 3</label><br>
+										<input type="file" name="image_3" class="form-control" required>
+									</div>
+									<div class="form-group">
+										<label for="image_4" class="text-info">Image 4</label><br>
+										<input type="file" name="image_4" class="form-control" required>
+									</div>
+									<div class="form-group">
+										<label for="image_5" class="text-info">Image 5</label><br>
+										<input type="file" name="image_5" class="form-control" required>
 									</div>
 									<div class="form-group">
 										<input type="submit" name="submit" class="btn btn-info btn-md" value="submit">

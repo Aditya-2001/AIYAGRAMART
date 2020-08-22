@@ -20,7 +20,7 @@ class Product(models.Model):
     image_3=models.ImageField(null=True, blank=True, upload_to='post_images/')
     image_4=models.ImageField(null=True, blank=True, upload_to='post_images/')
     image_5=models.ImageField(null=True, blank=True, upload_to='post_images/')
-    created_at=models.DateTimeField(default=datetime.now(), blank=True)
+    created_at=models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
         return self.name

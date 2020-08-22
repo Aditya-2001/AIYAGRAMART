@@ -1,6 +1,6 @@
 from django.shortcuts import render,HttpResponse,redirect
 from django.contrib.auth.models import User
-from .forms import UserForm
+from .forms import UserForm,ChangePasswordForm
 from django.contrib import messages
 from django.contrib.auth import login,authenticate,logout
 # Create your views here.
@@ -17,7 +17,38 @@ def signup(request):
     return render(request,"home/signup_page.html",context={})
 
 def forgot_password(request):
-    return render(request,"home/home_page.html",context={})
+    return render(request,"home/create_new_password.html",context={})
+
+def change_password(request):
+    if request.method == "POST":
+        form = ChangePasswordForm(request.POST)
+
+        username=request.POST.get("username")
+        email=request.POST.get("email")
+        try:
+            checker_username = User.objects.get(email=email).username
+            try:
+                checker1 = User.objects.get(username=username)
+                checker2 = User.objects.get(username=checker_username)
+                if checker1 == checker2 :
+                    print(form.is_valid())
+                    if form.is_valid():
+                        password=request.POST.get("password1")
+                        user = User.objects.get(username=username, email=email)
+                        user.set_password(password)
+                        user.save()
+                        form.save()
+                        return redirect('home')
+                    else:
+                        return render(request,"home/create_new_password.html",context={"wrong_password": True, "error": form.errors})
+                else:
+                    return render(request,"home/create_new_password.html",context={"wrong_user_email": True})
+            except:
+                return render(request,"home/create_new_password.html",context={"wrong_username": True})
+        except:
+            return render(request,"home/create_new_password.html",context={"wrong_email": True})
+    else:
+        return HttpResponse("<h1>404: ERROR- This page can not be accessed by anyone</h1>")
 
 def match_user(request):
     if request.method == "POST":
