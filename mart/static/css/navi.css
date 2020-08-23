@@ -1,0 +1,60 @@
+
+.naavbar {
+    overflow: hidden;
+    background-color: #333; 
+    }
+    
+    .naavbar a {
+    float: left;
+    font-size: 16px;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    }
+    
+    .subnaav {
+    float: left;
+    overflow: hidden;
+    }
+    
+    .subnaav .subnaavbtn {
+    font-size: 16px; 
+    border: none;
+    outline: none;
+    color: white;
+    padding: 14px 16px;
+    background-color: inherit;
+    font-family: inherit;
+    margin: 0;
+    }
+    
+    .naavbar a:hover, .subnaav:hover .subnaavbtn {
+    background-color: red;
+    }
+    
+    .subnaav-content {
+    display: none;
+    position: absolute;
+    left: 0;
+    background-color: red;
+    width: 100%;
+    z-index: 1;
+    }
+    
+    .subnaav-content a {
+    float: left;
+    color: white;
+    text-decoration: none;
+    }
+    
+    .subnaav-content a:hover {
+    background-color: #eee;
+    color: black;
+    }
+    
+    .subnaav:hover .subnaav-content {
+    display: block;
+    }
+    
+    
