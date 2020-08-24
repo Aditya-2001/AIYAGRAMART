@@ -59,14 +59,7 @@
           {% if user.is_authenticated%}
           <a href="{% url 'logout_request' %}"><strong>Logout</strong></a>
           {% endif %}
-          <form class="navbar-form navbar-right" role="search" action="{% url 'search_product' %}" method="GET">
-            <div class="form-group">
-                <input type="text" placeholder="Enter Keyword Here ..." class="form-control">
-            </div>
-            &nbsp; 
-            <button type="submit" class="btn btn-primary">Search</button>
-        </form>
-        <ul class="nav navbar-nav navbar-right">
+          <ul class="nav navbar-nav navbar-right">
             {% if user.is_authenticated %}
             <li style="color: white;"><a href="#">Hi, {{request.user}}</a></li>
             {% else %}
@@ -74,6 +67,13 @@
             <li><a href="{% url 'signup' %}">Signup</a></li>
             {% endif %}
         </ul>
+          <form class="navbar-form navbar-right" role="search" action="{% url 'search_product' %}" method="GET">
+            <div class="form-group">
+                <input type="text" name="search_product" placeholder="Enter Keyword Here ..." class="form-control">
+            </div>
+            &nbsp; 
+            <button type="submit" class="btn btn-primary">Search</button>
+        </form>
       </div>
      
       <br><br>
