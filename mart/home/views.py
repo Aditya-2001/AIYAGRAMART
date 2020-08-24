@@ -3,6 +3,7 @@ from django.contrib.auth.models import User
 from .forms import UserForm,ChangePasswordForm
 from django.contrib import messages
 from django.contrib.auth import login,authenticate,logout
+from .models import Product
 # Create your views here.
 def home(request):
     return render(request,"home/home_page.html",context={})
@@ -100,3 +101,12 @@ def logout_request(request):
 
 def merchant(request):
     return render(request,"merchant/login_request_merchant.html",context={})
+
+def search_product(request):
+    if request.method == "GET":
+        search_product=request.GET.get("search_product")
+        products = Product.objects.filter(search_tags__icontains=search_product).order_by("-created_at")
+
+        return render(request,"home/search_material.html",context={"products": products})
+    else:
+        return render('home')
