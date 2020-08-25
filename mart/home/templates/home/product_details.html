@@ -76,33 +76,45 @@
         </form>
       </div>
      
+      <br>
+      <h1 style="align-content: center; margin-left: 40%;"><b>{{product.name}}</b></h1>
       <br><br>
 
-      
       <div class="row">
-        {% for product in products %}
-        <div class="col-md-4 text-center col-sm-6 col-xs-6">
-            <div class="thumbnail product-box">
-                <img src="{{product.image_1.url}}"  />
-                <span class="label label-warning pull-center">{{product.stock}} products left</span>
-                <div class="caption">
-                    <h3><a href="#">{{product.name}}</a></h3>
-                    <p>Price : $ <strong>{{product.price}}</strong>  </p>
-                    
-                   <p>
-                        <a href="#" class="btn btn-success" role="button">Add To Cart</a>
-                        <form action="{% url 'product_details' %}" method="GET">
-                            <input type="hidden" name="ID" value="{{product.id}}"}>
-                            <button type="submit" class="btn btn-primary">See Details</button>
-                        </form>
-                    </p>
-                </div>
-            </div>
-        </div>
-        {% endfor %}
-               <!-- /.col -->
-    </div>
-</div>
+        <div class="col-md-12">
+           
+            <div class="main box-border">
+                <div id="mi-slider" class="mi-slider">
+                    <ul>
+
+                        <li><a href="#">
+                            <img src="{% static 'img/1.jpg' %}" alt="img01"><h4>Boots</h4>
+                        </a></li>
+                        <li><a href="#">
+                            <img src="{% static 'img/2.jpg' %}" alt="img02"><h4>Oxfords</h4>
+                        </a></li>
+                        <li><a href="#">
+                            <img src="{% static 'img/3.jpg' %}" alt="img03"><h4>Loafers</h4>
+                        </a></li>
+                        </ul>
+                        <ul>
+                            <li><a href="#">
+                                <img src="{% static 'img/4.jpg' %}" alt="img04"><h4>Sneakers</h4>
+                            </a></li>
+                            <li><a href="#">
+                                <img src="{% static 'img/4.jpg' %}" alt="img04"><h4>Sneakers</h4>
+                            </a></li>
+                        </ul>
+                    <nav>
+                        <a href="#">Images</a>
+                        <a href="#">More Images</a>
+                        
+                    </nav>
+                </div></div> 
+      
+     
+                <h2>Description of the product: {{product.description}}</h2>
+
 
 
             <div class="col-md-12 download-app-box text-center">

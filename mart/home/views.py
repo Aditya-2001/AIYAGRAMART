@@ -107,7 +107,14 @@ def search_product(request):
         search_product=request.GET.get("search_product")
         print(search_product)
         products = Product.objects.filter(search_tags__icontains=search_product).order_by("-created_at")
-
         return render(request,"home/search_material.html",context={"products": products})
     else:
-        return render('home')
+        return redirect('home')
+
+def product_details(request):
+    if request.method == "GET":
+        ID=request.GET.get("ID")
+        product_details=Product.objects.get(id=ID)
+        return render(request,"home/product_details.html",context={"product": product_details})
+    else:
+        return redirect('home')
