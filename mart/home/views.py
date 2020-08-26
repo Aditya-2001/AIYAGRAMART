@@ -3,7 +3,7 @@ from django.contrib.auth.models import User
 from .forms import UserForm,ChangePasswordForm
 from django.contrib import messages
 from django.contrib.auth import login,authenticate,logout
-from .models import Product, Orders, UsersOrders
+from .models import Product, Orders, UsersOrders, Query
 # Create your views here.
 def home(request):
     return render(request,"home/home_page.html",context={})
@@ -122,3 +122,13 @@ def product_details(request):
 def categorical_search(request,item):
     products = Product.objects.filter(search_tags__icontains=item).order_by("-created_at")
     return render(request,"home/search_material.html",context={"products": products})
+
+def query(request):
+    if request.method=="POST":
+        name=request.POST.get("name")
+        email=request.POST.get("email")
+        message=request.POST.get("message")
+        Query.objects.create(name=name, email=email, message=message)
+        return redirect('home')
+    else:
+        return redirect('home')

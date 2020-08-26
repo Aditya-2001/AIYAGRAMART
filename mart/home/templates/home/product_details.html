@@ -116,127 +116,99 @@
                 <h2>Description of the product: {{product.description}}</h2>
 
 
+                <div class="col-md-12 download-app-box text-center">
 
-            <div class="col-md-12 download-app-box text-center">
-
-                <span class="glyphicon glyphicon-download-alt"></span>Download Our Android App and Get 10% additional Off on all Products . <a href="#" class="btn btn-danger btn-lg">DOWNLOAD  NOW</a>
+                    <span class="glyphicon glyphicon-download-alt"></span>Download Our Android App and Get 10% additional Off on all Products . <a href="#" class="btn btn-danger btn-lg">DOWNLOAD  NOW</a>
+                    
+                    </div>
+        <!--Footer -->
+        <div class="col-md-12 footer-box">
+    
+    
+            <div class="row small-box pad-botom ">
+                <strong>Trending electronic brands :</strong> <a href="{% url 'categorical_search' item='samsung' %}">samsung</a> |  <a href="{% url 'categorical_search' item='sony' %}">Sony</a> | <a href="{% url 'categorical_search' item='micromax' %}">Micromax</a> | 
+                <a href="{% url 'categorical_search' item='mi' %}">Xiaomi</a> |<a href="{% url 'categorical_search' item='vivo' %}">Vivo</a> |<a href="{% url 'categorical_search' item='hp' %}">HP</a> |<a href="{% url 'categorical_search' item='dell' %}">Dell</a> |
+                <a href="{% url 'categorical_search' item='oppo' %}">Oppo</a> |<a href="{% url 'categorical_search' item='nokia' %}">Nokia</a> |<a href="{% url 'categorical_search' item='itel' %}">Itel</a> |
                 
+            </div>
+            <div class="row">
+                <div class="col-md-4">
+                    <strong>Send a Quick Query </strong>
+                    <hr>
+                    <form action="{% url 'query' %}" method="POST"  enctype="multipart/form-data">
+                        {% csrf_token %}
+                        <div class="row">
+                            <div class="col-md-6 col-sm-6">
+                                <div class="form-group">
+                                    <input type="text" name="name" class="form-control" required="required" placeholder="Name">
+                                </div>
+                            </div>
+                            <div class="col-md-6 col-sm-6">
+                                <div class="form-group">
+                                    <input type="email" name="email" class="form-control" required="required" placeholder="Email address">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-12 col-sm-12">
+                                <div class="form-group">
+                                    <textarea name="message" id="message" required="required" class="form-control" rows="3" placeholder="Message"></textarea>
+                                </div>
+                                <div class="form-group">
+                                    <button type="submit" class="btn btn-primary">Submit Request</button>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
                 </div>
-    <!--Footer -->
-    <div class="col-md-12 footer-box">
-
-
-        <div class="row small-box ">
-            <strong>Mobiles :</strong> <a href="#">samsung</a> |  <a href="#">Sony</a> | <a href="#">Microx</a> | 
-            <a href="#">samsung</a> |  <a href="#">Sony</a> | <a href="#">Microx</a> |<a href="#">samsung</a> |
-              <a href="#">Sony</a> | <a href="#">Microx</a> |<a href="#">samsung</a> |  <a href="#">Sony</a> | 
-            <a href="#">Microx</a> |<a href="#">samsung</a> |  <a href="#">Sony</a> | <a href="#">Microx</a> |
-            <a href="#">samsung</a> |  <a href="#">Sony</a> | <a href="#">Microx</a> |<a href="#">samsung</a> |  
-            <a href="#">Sony</a> | <a href="#">Microx</a> | view all items
-         
-        </div>
-        <div class="row small-box ">
-            <strong>Laptops :</strong> <a href="#">samsung</a> |  <a href="#">Sony</a> | <a href="#">Microx Laptops</a> | 
-            <a href="#">samsung</a> |  <a href="#">Sony</a> | <a href="#">Microx</a> |<a href="#">samsung</a> |
-              <a href="#">Sony Laptops</a> | <a href="#">Microx</a> |<a href="#">samsung</a> |  <a href="#">Sony</a> | 
-            <a href="#">Microx</a> |<a href="#">samsung</a> |  <a href="#">Sony</a> | <a href="#">Microx</a> |
-            <a href="#">samsung</a> |  <a href="#">Sony</a> | <a href="#">Microx</a> |<a href="#">samsung</a> |  
-            <a href="#">Sony</a> | <a href="#">Microx</a> | view all items
-        </div>
-        <div class="row small-box ">
-            <strong>Tablets : </strong><a href="#">samsung</a> |  <a href="#">Sony Tablets</a> | <a href="#">Microx</a> | 
-            <a href="#">samsung </a>|  <a href="#">Sony</a> | <a href="#">Microx</a> |<a href="#">samsung</a> |
-              <a href="#">Sony</a> | <a href="#">Microx</a> |<a href="#">samsung Tablets</a> |  <a href="#">Sony</a> | 
-            <a href="#">Microx</a> |<a href="#">samsung Tablets</a> |  <a href="#">Sony</a> | <a href="#">Microx</a> |
-            <a href="#">samsung</a> |  <a href="#">Sony</a> | <a href="#">Microx</a> |<a href="#">samsung</a> |  
-            <a href="#">Sony</a> | <a href="#">Microx Tablets</a> | view all items
-            
-        </div>
-        <div class="row small-box pad-botom ">
-            <strong>Computers :</strong> <a href="#">samsung</a> |  <a href="#">Sony</a> | <a href="#">Microx</a> | 
-            <a href="#">samsung Computers</a> |  <a href="#">Sony</a> | <a href="#">Microx</a> |<a href="#">samsung</a> |
-              <a href="#">Sony</a> | <a href="#">Microx</a> |<a href="#">samsung</a> |  <a href="#">Sony</a> | 
-            <a href="#">Microx Computers</a> |<a href="#">samsung Computers</a> |  <a href="#">Sony</a> | <a href="#">Microx</a> |
-            <a href="#">samsung</a> |  <a href="#">Sony</a> | <a href="#">Microx Computers</a> |<a href="#">samsung</a> |  
-            <a href="#">Sony</a> | <a href="#">Microx</a> | view all items
-            
-        </div>
-        <div class="row">
-            <div class="col-md-4">
-                <strong>Send a Quick Query </strong>
-                <hr>
-                <form>
-                    <div class="row">
-                        <div class="col-md-6 col-sm-6">
-                            <div class="form-group">
-                                <input type="text" class="form-control" required="required" placeholder="Name">
-                            </div>
-                        </div>
-                        <div class="col-md-6 col-sm-6">
-                            <div class="form-group">
-                                <input type="text" class="form-control" required="required" placeholder="Email address">
-                            </div>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-md-12 col-sm-12">
-                            <div class="form-group">
-                                <textarea name="message" id="message" required="required" class="form-control" rows="3" placeholder="Message"></textarea>
-                            </div>
-                            <div class="form-group">
-                                <button type="submit" class="btn btn-primary">Submit Request</button>
-                            </div>
-                        </div>
-                    </div>
-                </form>
+    
+                <div class="col-md-4">
+                    <strong>Our Location</strong>
+                    <hr>
+                    <p>
+                         834 SST Nagar Patiala<br />
+                                        Punjab, India<br />
+                        Call: +91 - 6284648753<br>
+                        Email: aditya.iiita2001@gmail.com<br>
+                    </p>
+    
+                    All Rights Reserved 2020
+                </div>
+                <div class="col-md-4 social-box">
+                    <strong>We are Social </strong>
+                    <hr>
+                    <a href="#"><i class="fa fa-facebook-square fa-3x "></i></a>
+                    <a href="#"><i class="fa fa-twitter-square fa-3x "></i></a>
+                    <a href="#"><i class="fa fa-google-plus-square fa-3x c"></i></a>
+                    <a href="#"><i class="fa fa-linkedin-square fa-3x "></i></a>
+                    <a href="#"><i class="fa fa-pinterest-square fa-3x "></i></a>
+                    <p>
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur nec nisl odio. Mauris vehicula at nunc id posuere. Curabitur nec nisl odio. Mauris vehicula at nunc id posuere. 
+                    </p>
+                </div>
             </div>
-
-            <div class="col-md-4">
-                <strong>Our Location</strong>
-                <hr>
-                <p>
-                     834 SST Nagar Patiala<br />
-                                    Punjab, India<br />
-                    Call: +91 - 6284648753<br>
-                    Email: aditya.iiita2001@gmail.com<br>
-                </p>
-
-                All Rights Reserved 2020
-            </div>
-            <div class="col-md-4 social-box">
-                <strong>We are Social </strong>
-                <hr>
-                <a href="#"><i class="fa fa-facebook-square fa-3x "></i></a>
-                <a href="#"><i class="fa fa-twitter-square fa-3x "></i></a>
-                <a href="#"><i class="fa fa-google-plus-square fa-3x c"></i></a>
-                <a href="#"><i class="fa fa-linkedin-square fa-3x "></i></a>
-                <a href="#"><i class="fa fa-pinterest-square fa-3x "></i></a>
-                <p>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur nec nisl odio. Mauris vehicula at nunc id posuere. Curabitur nec nisl odio. Mauris vehicula at nunc id posuere. 
-                </p>
-            </div>
+            <hr>
         </div>
-        <hr>
-    </div>
-    <!-- /.col -->
-    <div class="col-md-12 end-box ">
-        &copy; 2020 | &nbsp; All Rights Reserved  | &nbsp; 24x7 support | &nbsp; Email us: aditya.iiita2001@gmail.com
-    </div>
-    <!-- /.col -->
-    <!--Footer end -->
-    <!--Core JavaScript file  -->
-    <script src="{% static 'js/jquery-1.10.2.js' %}"></script>
-    <!--bootstrap JavaScript file  -->
-    <script src="{% static 'js/bootstrap.js' %}"></script>
-    <!--Slider JavaScript file  -->
-    <script src="{% static 'js/modernizr.custom.63321.js' %}"></script>
-    <script src="{% static 'js/jquery.catslider.js' %}"></script>
-    <script>
-        $(function () {
-
-            $('#mi-slider').catslider();
-
-        });
-		</script>
-</body>
-</html>
+        <!-- /.col -->
+        <div class="col-md-12 end-box ">
+            &copy; 2020 | &nbsp; All Rights Reserved  | &nbsp; 24x7 support | &nbsp; Email us: aditya.iiita2001@gmail.com
+        </div>
+        <!-- /.col -->
+        <!--Footer end -->
+        <!--Core JavaScript file  -->
+        <script src="{% static 'js/jquery-1.10.2.js' %}"></script>
+        <!--bootstrap JavaScript file  -->
+        <script src="{% static 'js/bootstrap.js' %}"></script>
+        <!--Slider JavaScript file  -->
+        <script src="{% static 'js/modernizr.custom.63321.js' %}"></script>
+        <script src="{% static 'js/jquery.catslider.js' %}"></script>
+        <script>
+            $(function () {
+    
+                $('#mi-slider').catslider();
+    
+            });
+            </script>
+    </body>
+    </html>
+    
