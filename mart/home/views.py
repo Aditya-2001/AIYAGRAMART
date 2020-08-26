@@ -118,3 +118,7 @@ def product_details(request):
         return render(request,"home/product_details.html",context={"product": product_details})
     else:
         return redirect('home')
+
+def categorical_search(request,item):
+    products = Product.objects.filter(search_tags__icontains=item).order_by("-created_at")
+    return render(request,"home/search_material.html",context={"products": products})
