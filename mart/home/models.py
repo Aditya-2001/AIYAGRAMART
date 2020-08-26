@@ -42,3 +42,11 @@ class UsersOrders(models.Model):
 
     def __str__(self):
         return self.customer.username
+
+class Query(models.Model):
+    name=models.CharField(max_length=1000, null=True)
+    email=models.EmailField(max_length=50)
+    message=models.CharField(max_length=10000, null=True)
+
+    def __str__(self):
+        return self.name

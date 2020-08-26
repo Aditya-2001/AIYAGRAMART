@@ -156,68 +156,68 @@
             <div class="row">
                 <div class="col-md-12">
                 <div>
-                <a href="#" class="list-group-item active">Electronics
+                <a href="{% url 'categorical_search' item='electronic' %}" class="list-group-item active">Electronics
                 </a>
                 <ul class="list-group">
 
-                    <li class="list-group-item">Mobiles
+                    <a href="{% url 'categorical_search' item='phone' %}"><li class="list-group-item">Mobiles
   <span class="label label-primary pull-right">234</span>
-                    </li>
-                    <li class="list-group-item">Laptops
+                    </li></a>
+                    <a href="{% url 'categorical_search' item='laptop' %}"> <li class="list-group-item">Laptops
                   <span class="label label-success pull-right">34</span>
-                    </li>
-                    <li class="list-group-item">Tablets
+                    </li></a>
+                    <a href="{% url 'categorical_search' item='tablet' %}"> <li class="list-group-item">Tablets
                      <span class="label label-danger pull-right">4</span>
-                    </li>
-                    <li class="list-group-item">Appliances
+                    </li></a>
+                    <a href="{% url 'categorical_search' item='app' %}">  <li class="list-group-item">Appliances
                          <span class="label label-info pull-right">434</span>
-                    </li>
-                    <li class="list-group-item">Games & Entertainment
+                    </li></a>
+                    <a href="{% url 'categorical_search' item='game' %}">   <li class="list-group-item">Games & Entertainment
                          <span class="label label-success pull-right">34</span>
-                    </li>
+                    </li></a>
                 </ul>
             </div>
             <!-- /.div -->
             <div>
-                <a href="#" class="list-group-item active list-group-item-success">Clothing & Wears
+                <a href="{% url 'categorical_search' item='wear' %}" class="list-group-item active list-group-item-success">Clothing & Wears
                 </a>
                 <ul class="list-group">
 
-                    <li class="list-group-item">Men's Clothing
+                    <a href="{% url 'categorical_search' item='men wear' %}"> <li class="list-group-item">Men's Clothing
                          <span class="label label-danger pull-right">300</span>
-                    </li>
-                    <li class="list-group-item">Women's Clothing
+                    </li></a>
+                    <a href="{% url 'categorical_search' item='women wear' %}"> <li class="list-group-item">Women's Clothing
                          <span class="label label-success pull-right">340</span>
-                    </li>
-                    <li class="list-group-item">Kid's Wear
+                    </li></a>
+                    <a href="{% url 'categorical_search' item='kid wear' %}"> <li class="list-group-item">Kid's Wear
                          <span class="label label-info pull-right">735</span>
-                    </li>
+                    </li></a>
 
                 </ul>
             </div>
             <!-- /.div -->
             <div>
-                <a href="#" class="list-group-item active">Accessaries & Extras
+                <a href="{% url 'categorical_search' item='acc' %}" class="list-group-item active">Accessaries & Extras
                 </a>
                 <ul class="list-group">
-                    <li class="list-group-item">Mobile Accessaries
+                    <a href="{% url 'categorical_search' item='phone' %}"> <li class="list-group-item">Mobile Accessaries
                          <span class="label label-warning pull-right">456</span>
-                    </li>
-                    <li class="list-group-item">Men's Accessaries
+                    </li></a>
+                    <a href="{% url 'categorical_search' item='men' %}"> <li class="list-group-item">Men's Accessaries
                          <span class="label label-success pull-right">156</span>
-                    </li>
-                    <li class="list-group-item">Women's Accessaries
+                    </li></a>
+                    <a href="{% url 'categorical_search' item='women' %}"> <li class="list-group-item">Women's Accessaries
                          <span class="label label-info pull-right">400</span>
-                    </li>
-                    <li class="list-group-item">Kid's Accessaries
+                    </li></a>
+                    <a href="{% url 'categorical_search' item='kid' %}"> <li class="list-group-item">Kid's Accessaries
                          <span class="label label-primary pull-right">89</span>
-                    </li>
-                    <li class="list-group-item">Home Products
+                    </li></a>
+                    <a href="{% url 'categorical_search' item='home' %}"> <li class="list-group-item">Home Products
                          <span class="label label-danger pull-right">90</span>
-                    </li>
-                    <li class="list-group-item">Kitchen Products
+                    </li></a>
+                    <a href="{% url 'categorical_search' item='kitchen' %}"> <li class="list-group-item">Kitchen Products
                          <span class="label label-warning pull-right">567</span>
-                    </li>
+                    </li></a>
                 </ul>
             </div>
             </div></div>
@@ -230,39 +230,10 @@
     <div class="col-md-12 footer-box">
 
 
-        <div class="row small-box ">
-            <strong>Mobiles :</strong> <a href="#">samsung</a> |  <a href="#">Sony</a> | <a href="#">Microx</a> | 
-            <a href="#">samsung</a> |  <a href="#">Sony</a> | <a href="#">Microx</a> |<a href="#">samsung</a> |
-              <a href="#">Sony</a> | <a href="#">Microx</a> |<a href="#">samsung</a> |  <a href="#">Sony</a> | 
-            <a href="#">Microx</a> |<a href="#">samsung</a> |  <a href="#">Sony</a> | <a href="#">Microx</a> |
-            <a href="#">samsung</a> |  <a href="#">Sony</a> | <a href="#">Microx</a> |<a href="#">samsung</a> |  
-            <a href="#">Sony</a> | <a href="#">Microx</a> | view all items
-         
-        </div>
-        <div class="row small-box ">
-            <strong>Laptops :</strong> <a href="#">samsung</a> |  <a href="#">Sony</a> | <a href="#">Microx Laptops</a> | 
-            <a href="#">samsung</a> |  <a href="#">Sony</a> | <a href="#">Microx</a> |<a href="#">samsung</a> |
-              <a href="#">Sony Laptops</a> | <a href="#">Microx</a> |<a href="#">samsung</a> |  <a href="#">Sony</a> | 
-            <a href="#">Microx</a> |<a href="#">samsung</a> |  <a href="#">Sony</a> | <a href="#">Microx</a> |
-            <a href="#">samsung</a> |  <a href="#">Sony</a> | <a href="#">Microx</a> |<a href="#">samsung</a> |  
-            <a href="#">Sony</a> | <a href="#">Microx</a> | view all items
-        </div>
-        <div class="row small-box ">
-            <strong>Tablets : </strong><a href="#">samsung</a> |  <a href="#">Sony Tablets</a> | <a href="#">Microx</a> | 
-            <a href="#">samsung </a>|  <a href="#">Sony</a> | <a href="#">Microx</a> |<a href="#">samsung</a> |
-              <a href="#">Sony</a> | <a href="#">Microx</a> |<a href="#">samsung Tablets</a> |  <a href="#">Sony</a> | 
-            <a href="#">Microx</a> |<a href="#">samsung Tablets</a> |  <a href="#">Sony</a> | <a href="#">Microx</a> |
-            <a href="#">samsung</a> |  <a href="#">Sony</a> | <a href="#">Microx</a> |<a href="#">samsung</a> |  
-            <a href="#">Sony</a> | <a href="#">Microx Tablets</a> | view all items
-            
-        </div>
         <div class="row small-box pad-botom ">
-            <strong>Computers :</strong> <a href="#">samsung</a> |  <a href="#">Sony</a> | <a href="#">Microx</a> | 
-            <a href="#">samsung Computers</a> |  <a href="#">Sony</a> | <a href="#">Microx</a> |<a href="#">samsung</a> |
-              <a href="#">Sony</a> | <a href="#">Microx</a> |<a href="#">samsung</a> |  <a href="#">Sony</a> | 
-            <a href="#">Microx Computers</a> |<a href="#">samsung Computers</a> |  <a href="#">Sony</a> | <a href="#">Microx</a> |
-            <a href="#">samsung</a> |  <a href="#">Sony</a> | <a href="#">Microx Computers</a> |<a href="#">samsung</a> |  
-            <a href="#">Sony</a> | <a href="#">Microx</a> | view all items
+            <strong>Trending electronic brands :</strong> <a href="{% url 'categorical_search' item='samsung' %}">samsung</a> |  <a href="{% url 'categorical_search' item='sony' %}">Sony</a> | <a href="{% url 'categorical_search' item='micromax' %}">Micromax</a> | 
+            <a href="{% url 'categorical_search' item='mi' %}">Xiaomi</a> |<a href="{% url 'categorical_search' item='vivo' %}">Vivo</a> |<a href="{% url 'categorical_search' item='hp' %}">HP</a> |<a href="{% url 'categorical_search' item='dell' %}">Dell</a> |
+            <a href="{% url 'categorical_search' item='oppo' %}">Oppo</a> |<a href="{% url 'categorical_search' item='nokia' %}">Nokia</a> |<a href="{% url 'categorical_search' item='itel' %}">Itel</a> |
             
         </div>
         <div class="row">
