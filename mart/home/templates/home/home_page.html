@@ -221,11 +221,40 @@
                 </ul>
             </div>
             </div></div>
-            <div class="col-md-12 download-app-box text-center">
-
-                <span class="glyphicon glyphicon-download-alt"></span>Download Our Android App and Get 10% additional Off on all Products . <a href="#" class="btn btn-danger btn-lg">DOWNLOAD  NOW</a>
-                
+            
+                <div class="row">
+                    {% for product in products %}
+                    <div class="col-md-4 text-center col-sm-6 col-xs-6">
+                        <div class="thumbnail product-box">
+                            <img src="{{product.image_1.url}}"  />
+                            <span class="label label-warning pull-center">{{product.stock}} products left</span>
+                            <div class="caption">
+                                <h3><a href="#">{{product.name}}</a></h3>
+                                <p>Price : $ <strong>{{product.price}}</strong>  </p>
+                                
+                               <p>
+                                    <a href="#" class="btn btn-success" role="button">Add To Cart</a>
+                                    <form action="{% url 'product_details' %}" method="GET">
+                                        <input type="hidden" name="ID" value="{{product.id}}"}>
+                                        <button type="submit" class="btn btn-primary">See Details</button>
+                                    </form>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    {% endfor %}
+                           <!-- /.col -->
                 </div>
+
+
+
+
+                <div class="col-md-12 download-app-box text-center">
+
+                    <span class="glyphicon glyphicon-download-alt"></span>Download Our Android App and Get 10% additional Off on all Products . <a href="#" class="btn btn-danger btn-lg">DOWNLOAD  NOW</a>
+                    
+                    </div>
+
     <!--Footer -->
     <div class="col-md-12 footer-box">
 

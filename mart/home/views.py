@@ -6,7 +6,8 @@ from django.contrib.auth import login,authenticate,logout
 from .models import Product, Orders, UsersOrders, Query
 # Create your views here.
 def home(request):
-    return render(request,"home/home_page.html",context={})
+    product_details=Product.objects.all().order_by("-created_at")
+    return render(request,"home/home_page.html",context={"products": product_details})
 
 def login_request(request):
     if request.user.is_authenticated:
