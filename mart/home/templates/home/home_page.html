@@ -34,9 +34,9 @@
         <div class="subnaav">
           <button class="subnaavbtn">About <i class="fa fa-caret-down"></i></button>
           <div class="subnaav-content">
-            <a href="#company">Company</a>
-            <a href="#team">Team</a>
-            <a href="#careers">Careers</a>
+            <a href="{% url 'about' item='company' %}">Company</a>
+            <a href="{% url 'about' item='team' %}">Team</a>
+            <a href="{% url 'about' item='career' %}">Careers</a>
           </div>
         </div> 
         <div class="subnaav">
@@ -61,7 +61,7 @@
           {% endif %}
           <ul class="nav navbar-nav navbar-right">
             {% if user.is_authenticated %}
-            <li style="color: white;"><a href="#">Hi, {{request.user}}</a></li>
+            <li style="color: white;"><a href="{% url 'home' %}">Hi, {{request.user}}</a></li>
             {% else %}
             <li><a href="{% url 'login_request' %}">Login</a></li>
             <li><a href="{% url 'signup' %}">Signup</a></li>

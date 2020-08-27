@@ -108,7 +108,8 @@ def search_product(request):
         search_product=request.GET.get("search_product")
         print(search_product)
         products = Product.objects.filter(search_tags__icontains=search_product).order_by("-created_at")
-        return render(request,"home/search_material.html",context={"products": products})
+        all_products = Product.objects.all()
+        return render(request,"home/search_material.html",context={"products": products, "all_products": all_products})
     else:
         return redirect('home')
 
@@ -122,7 +123,8 @@ def product_details(request):
 
 def categorical_search(request,item):
     products = Product.objects.filter(search_tags__icontains=item).order_by("-created_at")
-    return render(request,"home/search_material.html",context={"products": products})
+    all_products = Product.objects.all()
+    return render(request,"home/search_material.html",context={"products": products, "all_products": all_products})
 
 def query(request):
     if request.method=="POST":
@@ -131,5 +133,15 @@ def query(request):
         message=request.POST.get("message")
         Query.objects.create(name=name, email=email, message=message)
         return redirect('home')
+    else:
+        return redirect('home')
+
+def about(request,item):
+    if item=="company":
+        return render(request,"home/about.html",context={"company": True})
+    elif item=="team":
+        return render(request,"home/about.html",context={"team": True})
+    elif item=="career":
+        return render(request,"home/about.html",context={"career": True})
     else:
         return redirect('home')
