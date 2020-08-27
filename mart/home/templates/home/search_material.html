@@ -26,59 +26,58 @@
     
 </head>
 <body>
-    
 
 
-      <div class="naavbar">
-        <a class="navbar-brand" href="{% url 'home' %}"><strong style="font-size: x-large;">AIYAGRAMART</strong></a>
-        <div class="subnaav">
-          <button class="subnaavbtn">About <i class="fa fa-caret-down"></i></button>
+    <div class="naavbar">
+      <a class="navbar-brand" href="{% url 'home' %}"><strong style="font-size: x-large;">AIYAGRAMART</strong></a>
+      <div class="subnaav">
+        <button class="subnaavbtn">About <i class="fa fa-caret-down"></i></button>
+        <div class="subnaav-content">
+          <a href="{% url 'about' item='company' %}">Company</a>
+          <a href="{% url 'about' item='team' %}">Team</a>
+          <a href="{% url 'about' item='career' %}">Careers</a>
+        </div>
+      </div> 
+      <div class="subnaav">
+        <button class="subnaavbtn">Services <i class="fa fa-caret-down"></i></button>
+        <div class="subnaav-content">
+          <a href="#bring">Bring</a>
+          <a href="#deliver">Deliver</a>
+          <a href="#package">Package</a>
+          <a href="#express">Express</a>
+        </div>
+      </div> 
+      <a href="{% url 'merchant' %}">Merchant Panel</a>
+      <div class="subnaav">
+          <button class="subnaavbtn">Contact<i class="fa fa-caret-down"></i></button>
           <div class="subnaav-content">
-            <a href="#company">Company</a>
-            <a href="#team">Team</a>
-            <a href="#careers">Careers</a>
+              <a href="#"><strong>Call: </strong>+91 - 6284648753</a>
+              <a href="#"><strong>Mail: </strong>aditya.iiita2001@gmail.com</a>
           </div>
         </div> 
-        <div class="subnaav">
-          <button class="subnaavbtn">Services <i class="fa fa-caret-down"></i></button>
-          <div class="subnaav-content">
-            <a href="#bring">Bring</a>
-            <a href="#deliver">Deliver</a>
-            <a href="#package">Package</a>
-            <a href="#express">Express</a>
-          </div>
-        </div> 
-        <a href="{% url 'merchant' %}">Merchant Panel</a>
-        <div class="subnaav">
-            <button class="subnaavbtn">Contact<i class="fa fa-caret-down"></i></button>
-            <div class="subnaav-content">
-                <a href="#"><strong>Call: </strong>+91 - 6284648753</a>
-                <a href="#"><strong>Mail: </strong>aditya.iiita2001@gmail.com</a>
-            </div>
-          </div> 
-          {% if user.is_authenticated%}
-          <a href="{% url 'logout_request' %}"><strong>Logout</strong></a>
+        {% if user.is_authenticated%}
+        <a href="{% url 'logout_request' %}"><strong>Logout</strong></a>
+        {% endif %}
+        <ul class="nav navbar-nav navbar-right">
+          {% if user.is_authenticated %}
+          <li style="color: white;"><a href="{% url 'home' %}">Hi, {{request.user}}</a></li>
+          {% else %}
+          <li><a href="{% url 'login_request' %}">Login</a></li>
+          <li><a href="{% url 'signup' %}">Signup</a></li>
           {% endif %}
-          <ul class="nav navbar-nav navbar-right">
-            {% if user.is_authenticated %}
-            <li style="color: white;"><a href="#">Hi, {{request.user}}</a></li>
-            {% else %}
-            <li><a href="{% url 'login_request' %}">Login</a></li>
-            <li><a href="{% url 'signup' %}">Signup</a></li>
-            {% endif %}
-        </ul>
-          <form class="navbar-form navbar-right" role="search" action="{% url 'search_product' %}" method="GET">
-            <div class="form-group">
-                <input type="text" name="search_product" placeholder="Enter Keyword Here ..." class="form-control">
-            </div>
-            &nbsp; 
-            <button type="submit" class="btn btn-primary">Search</button>
-        </form>
-      </div>
+      </ul>
+        <form class="navbar-form navbar-right" role="search" action="{% url 'search_product' %}" method="GET">
+          <div class="form-group">
+              <input type="text" name="search_product" placeholder="Enter Keyword Here ..." class="form-control">
+          </div>
+          &nbsp; 
+          <button type="submit" class="btn btn-primary">Search</button>
+      </form>
+    </div>
      
       <br><br>
       {% if products %}
-<H1 style="margin-left: 20%;">PRODUCTS RELATED TO YOUR SEARCH</H1>
+<H1 style="text-align: center;">PRODUCTS RELATED TO YOUR SEARCH</H1>
       {% endif %}
       <div class="row">
         {% for product in products %}
@@ -104,7 +103,7 @@
 
         {% if products %}
         {% else %}
-        <marquee><H1>No Product found related to your search. TRY AGAIN!</H1></marquee>
+        <H1 style="text-align: center;">No Product found related to your search. TRY AGAIN!</H1>
         {% endif %}
 
                <!-- /.col -->
@@ -114,7 +113,7 @@
 <br>
 <hr>
 <br>
-<H1 style="margin-left: 40%;">MORE PRODUCTS</H1>
+<H1 style="text-align: center;">MORE PRODUCTS</H1>
 <div class="row">
     {% for product in all_products %}
     <div class="col-md-4 text-center col-sm-6 col-xs-6">

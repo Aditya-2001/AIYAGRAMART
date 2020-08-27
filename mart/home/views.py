@@ -117,7 +117,8 @@ def product_details(request):
     if request.method == "GET":
         ID=request.GET.get("ID")
         product_details=Product.objects.get(id=ID)
-        return render(request,"home/product_details.html",context={"product": product_details})
+        all_products = Product.objects.all()
+        return render(request,"home/product_details.html",context={"product": product_details, "all_products": all_products})
     else:
         return redirect('home')
 

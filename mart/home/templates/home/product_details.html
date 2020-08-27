@@ -29,14 +29,14 @@
     
 
 
-      <div class="naavbar">
+    <div class="naavbar">
         <a class="navbar-brand" href="{% url 'home' %}"><strong style="font-size: x-large;">AIYAGRAMART</strong></a>
         <div class="subnaav">
           <button class="subnaavbtn">About <i class="fa fa-caret-down"></i></button>
           <div class="subnaav-content">
-            <a href="#company">Company</a>
-            <a href="#team">Team</a>
-            <a href="#careers">Careers</a>
+            <a href="{% url 'about' item='company' %}">Company</a>
+            <a href="{% url 'about' item='team' %}">Team</a>
+            <a href="{% url 'about' item='career' %}">Careers</a>
           </div>
         </div> 
         <div class="subnaav">
@@ -61,7 +61,7 @@
           {% endif %}
           <ul class="nav navbar-nav navbar-right">
             {% if user.is_authenticated %}
-            <li style="color: white;"><a href="#">Hi, {{request.user}}</a></li>
+            <li style="color: white;"><a href="{% url 'home' %}">Hi, {{request.user}}</a></li>
             {% else %}
             <li><a href="{% url 'login_request' %}">Login</a></li>
             <li><a href="{% url 'signup' %}">Signup</a></li>
@@ -75,9 +75,8 @@
             <button type="submit" class="btn btn-primary">Search</button>
         </form>
       </div>
-     
       <br>
-      <h1 style="align-content: center; margin-left: 40%;"><b>{{product.name}}</b></h1>
+      <h1 style="text-align: center;"><b>{{product.name}}</b></h1>
       <br><br>
 
       <div class="row">
@@ -114,6 +113,35 @@
       
      
                 <h2>Description of the product: {{product.description}}</h2>
+
+
+                <br>
+<br>
+<hr>
+<br>
+<H1 style="text-align: center;">MORE PRODUCTS</H1>
+<div class="row">
+    {% for product in all_products %}
+    <div class="col-md-4 text-center col-sm-6 col-xs-6">
+        <div class="thumbnail product-box">
+            <img src="{{product.image_1.url}}"  />
+            <span class="label label-warning pull-center">{{product.stock}} products left</span>
+            <div class="caption">
+                <h3><a href="#">{{product.name}}</a></h3>
+                <p>Price : $ <strong>{{product.price}}</strong>  </p>
+                
+               <p>
+                    <a href="#" class="btn btn-success" role="button">Add To Cart</a>
+                    <form action="{% url 'product_details' %}" method="GET">
+                        <input type="hidden" name="ID" value="{{product.id}}"}>
+                        <button type="submit" class="btn btn-primary">See Details</button>
+                    </form>
+                </p>
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+           <!-- /.col -
 
 
                 <div class="col-md-12 download-app-box text-center">
