@@ -111,8 +111,30 @@
                     </nav>
                 </div></div> 
       
-     
-                <h2>Description of the product: {{product.description}}</h2>
+                <div style="background-color: #E57F3C; margin-left: 10%; margin-right: 10%;">
+                    <h2 style="text-align: center; color: black;">{{product.description}}</h2>
+                    <h2 style="text-align: center; color: black;">Warranty is {{product.warranty_time_in_months}} months</h2>
+                    <h2 style="text-align: center; color: black;">Price: {{product.price}}</h2>
+                    <h2 style="text-align: center; color: black;">Only {{product.stock}} left in stock</h2>
+                    <h2 style="text-align: center; color: black;">Manufacturing Company: {{product.manufacturing_company}}</h2>
+                    <h2 style="text-align: center; color: black;">If any compalint, email at {{product.company_email}}  or </h2>
+                    <h2 style="text-align: center; color: black;">Call us at {{product.company_contact_number}}</h2>
+                </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
                 <br>
@@ -141,7 +163,7 @@
         </div>
     </div>
     {% endfor %}
-           <!-- /.col -
+           <!-- /.col -->
 
 
                 <div class="col-md-12 download-app-box text-center">
