@@ -23,30 +23,27 @@ def forgot_password(request):
 
 def change_password(request):
     if request.method == "POST":
-        form = ChangePasswordForm(request.POST)
-
         username=request.POST.get("username")
         email=request.POST.get("email")
+        password1=request.POST.get("password1")
+        password2=request.POST.get("password2")
         try:
             checker_username = User.objects.get(email=email).username
             try:
                 checker1 = User.objects.get(username=username)
                 checker2 = User.objects.get(username=checker_username)
                 if checker1 == checker2 :
-                    print(form.is_valid())
-                    if form.is_valid():
-                        password=request.POST.get("password1")
-                        user = User.objects.get(username=username, email=email)
-                        user.set_password(password)
+                    if password1 == password2:
+                        user = User.objects.get(username=username)
+                        user.set_password(password2)
                         user.save()
-                        form.save()
-                        return redirect('home')
+                        return redirect('login_request')
                     else:
-                        return render(request,"home/create_new_password.html",context={"wrong_password": True, "error": form.errors})
+                        return render(request,"home/create_new_password.html",context={"wrong_password": True})
                 else:
                     return render(request,"home/create_new_password.html",context={"wrong_user_email": True})
             except:
-                return render(request,"home/create_new_password.html",context={"wrong_username": True})
+                ender(request,"home/create_new_password.html",context={"wrong_username": True})
         except:
             return render(request,"home/create_new_password.html",context={"wrong_email": True})
     else:
