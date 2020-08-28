@@ -11,4 +11,4 @@ def login_request_cart(request):
         return redirect('login_request')
 
 def home_cart(request):
-    return HttpResponse("CART")
+    return render(request,"cart/home_cart.html",context={})
