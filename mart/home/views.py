@@ -143,3 +143,6 @@ def about(request,item):
         return render(request,"home/about.html",context={"career": True})
     else:
         return redirect('home')
+
+def carttemp(request):
+    return redirect('login_request_cart')
