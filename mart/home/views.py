@@ -146,3 +146,19 @@ def about(request,item):
 
 def carttemp(request):
     return redirect('login_request_cart')
+
+def add_to_cart(request):
+    if request.method == "POST":
+        if request.user.is_authenticated:
+            ID=request.POST.get("ID")
+            product_details=Product.objects.get(id=ID)
+            stock_of_product=Product.objects.get(id=ID).stock
+            if stock_of_product > 0:
+                id_no=request.user.id
+                CartItems.objects.create(customer_id=id_no, product=product_details)
+            else:
+                return redirect('home')
+        else:
+            return redirect('login_request')
+    else:
+        return redirect('home')
