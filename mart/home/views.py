@@ -4,6 +4,7 @@ from .forms import UserForm,ChangePasswordForm
 from django.contrib import messages
 from django.contrib.auth import login,authenticate,logout
 from .models import Product, Orders, UsersOrders, Query
+from cart.models import CartItems
 # Create your views here.
 def home(request):
     product_details=Product.objects.all().order_by("-created_at")
@@ -154,8 +155,7 @@ def add_to_cart(request):
             product_details=Product.objects.get(id=ID)
             stock_of_product=Product.objects.get(id=ID).stock
             if stock_of_product > 0:
-                id_no=request.user.id
-                CartItems.objects.create(customer_id=id_no, product=product_details)
+                CartItems.objects.create(customer=user, product=product_details)
             else:
                 return redirect('home')
         else:
