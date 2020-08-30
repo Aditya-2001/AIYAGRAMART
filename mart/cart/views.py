@@ -100,7 +100,7 @@ def confirm_order(request):
                         else:
                             product.delete()
                         break
-            return HttpResponse("Order has been placed successfully")
+            return render(request,"cart/order_placed.html",context={})
         else:
             return redirect('login_request')
     else:
