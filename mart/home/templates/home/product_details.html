@@ -120,6 +120,11 @@
                     <h2 style="text-align: center; color: black;">If any compalint, email at {{product.company_email}}  or </h2>
                     <h2 style="text-align: center; color: black;">Call us at {{product.company_contact_number}}</h2>
                 </div>
+                <form action="{% url 'add_to_cart' %}" method="POST" enctype="multipart/form-data">
+                    {% csrf_token %}
+                    <input type="hidden" name="ID" value="{{product.id}}"}>
+                    <button type="submit" class="btn btn-success">Add to Cart</button>
+                </form>
 
 
 

@@ -90,7 +90,11 @@
                     <p>Price : $ <strong>{{product.price}}</strong>  </p>
                     
                    <p>
-                        <a href="#" class="btn btn-success" role="button">Add To Cart</a>
+                    <form action="{% url 'add_to_cart' %}" method="POST" enctype="multipart/form-data">
+                        {% csrf_token %}
+                        <input type="hidden" name="ID" value="{{product.id}}"}>
+                        <button type="submit" class="btn btn-success">Add to Cart</button>
+                    </form>
                         <form action="{% url 'product_details' %}" method="GET">
                             <input type="hidden" name="ID" value="{{product.id}}"}>
                             <button type="submit" class="btn btn-primary">See Details</button>
