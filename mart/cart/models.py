@@ -7,3 +7,4 @@ from home.models import Product
 class CartItems(models.Model):
     customer=models.ForeignKey(User, on_delete=models.CASCADE)
     product=models.ForeignKey(Product, on_delete=models.CASCADE, default=0)
+    added_at=models.DateTimeField(auto_now_add=True)

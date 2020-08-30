@@ -33,7 +33,32 @@
                 <a class="navbar-brand" href="{% url 'home' %}"><strong>AIYAGRAMART</strong></a>
             </div></div></nav>
                
-            
+            <div class="row">
+                {% for product in products %}
+                <div class="col-md-4 text-center col-sm-6 col-xs-6">
+                    <div class="thumbnail product-box">
+                        <img src="{{product.product.image_1.url}}"  />
+                        <span class="label label-warning pull-center">{{product.product.stock}} products left</span>
+                        <div class="caption">
+                            <h3><a href="#">{{product.product.name}}</a></h3>
+                            <p>Price : $ <strong>{{product.product.price}}</strong>  </p>
+                            
+                           <p>
+                            <form action="{% url 'delete_from_cart' %}" method="POST" enctype="multipart/form-data">
+                                {% csrf_token %}
+                                <input type="hidden" name="ID" value="{{product.id}}"}>
+                                <button type="submit" class="btn btn-success">Delete From Cart</button>
+                            </form>
+                                <form action="{% url 'product_details' %}" method="GET">
+                                    <input type="hidden" name="ID" value="{{product.product.id}}"}>
+                                    <button type="submit" class="btn btn-primary">See Details</button>
+                                </form>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+                </div>
 
     <!-- /.col -->
     <div class="col-md-12 end-box ">
