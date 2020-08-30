@@ -65,8 +65,12 @@
                 </div>
                 {% endfor %}
                 </div>
-
-    <!-- /.col -->
+                <br><br><br>
+                <form action="{% url 'checkout_request' %}" method="POST" enctype="multipart/form-data">
+                    {% csrf_token %}
+                <H1><button type="submit" style="text-align: center;" class="col-md-12 btn btn-success"><p  style="font-size: xx-large;">CHECKOUT</p></button></H1>
+                </form><!-- /.col -->
+    <br><br><br><br><br><br>
     <div class="col-md-12 end-box ">
         &copy; 2020 | &nbsp; All Rights Reserved | &nbsp; 24x7 support | &nbsp; Email us: aditya.iiita2001@gmail.com
     </div>

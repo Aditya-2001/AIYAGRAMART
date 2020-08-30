@@ -26,3 +26,6 @@ def delete_from_cart(request):
             return redirect('login_request')
     else:
         return redirect('home')
+
+def checkout_request(request):
+    return HttpResponse("djfh")
