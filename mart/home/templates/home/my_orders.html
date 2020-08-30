@@ -38,6 +38,7 @@
                 <div class="col-md-4 text-center col-sm-6 col-xs-6">
                     <div class="thumbnail product-box">
                         <img src="{{order.product_ordered.image_1.url}}"  />
+                        <span class="label label-warning pull-center">Currently, {{order.product_ordered.stock}} products left</span>
                         <div class="caption">
                             <h3><a href="#">{{order.product_ordered.name}}</a></h3>
                             <p>Price Paid: $ <strong>{{order.product_ordered.price}}</strong>  </p>
