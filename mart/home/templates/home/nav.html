@@ -684,3 +684,34 @@
             <br />
         </div>
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+        items={}
+        total_bill=0
+        for product in products:
+            if product.product.stock > 0:
+                flag=1
+                for key in items:
+                    if key==product.product.name:
+                        if items[key] < product.product.stock:
+                            items[key]=items[key] + 1
+                            total_bill=total_bill+product.product.price 
+                            product.total_quantity = product.total_quantity + 1
+                            product.save()
+                        flag=0
+                        break  
+                if flag==1:
+                    items.update({"product.product.name": 1})
+                    total_bill=total_bill+product.product.price
+        
