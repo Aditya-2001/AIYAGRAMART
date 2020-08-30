@@ -39,15 +39,7 @@
             <a href="{% url 'about' item='career' %}">Careers</a>
           </div>
         </div> 
-        <div class="subnaav">
-          <button class="subnaavbtn">Services <i class="fa fa-caret-down"></i></button>
-          <div class="subnaav-content">
-            <a href="#bring">Bring</a>
-            <a href="#deliver">Deliver</a>
-            <a href="#package">Package</a>
-            <a href="#express">Express</a>
-          </div>
-        </div> 
+        <a href="{% url 'my_order' %}">My Orders</a>
         <a href="{% url 'merchant' %}">Merchant Panel</a>
         <div class="subnaav">
             <button class="subnaavbtn">Contact<i class="fa fa-caret-down"></i></button>
