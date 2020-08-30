@@ -32,7 +32,12 @@
                 </button>
                 <a class="navbar-brand" href="{% url 'home' %}"><strong>AIYAGRAMART</strong></a>
             </div></div></nav>
-
+            {% if orders %}
+            <H1 style="text-align: center;">Your Past Orders: </H1>
+            <br>
+            {% else %}
+            <H1 style="text-align: center;">Your Order List is empty</H1>
+            {% endif %}
             <div class="row">
                 {% for order in orders %}
                 <div class="col-md-4 text-center col-sm-6 col-xs-6">
@@ -43,7 +48,7 @@
                             <h3><a href="#">{{order.product_ordered.name}}</a></h3>
                             <p>Price Paid: $ <strong>{{order.product_ordered.price}}</strong>  </p>
                             <p>Transaction ID: <strong>{{order.transaction_id_user}}</strong>  </p>
-                            
+                            <p>Ordered on: <strong>{{order.created_at}}</strong></p>
                            <p>
                             <form action="{% url 'add_to_cart' %}" method="POST" enctype="multipart/form-data">
                                 {% csrf_token %}
