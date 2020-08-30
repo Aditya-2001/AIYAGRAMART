@@ -52,7 +52,10 @@ def checkout_request(request):
                         total_bill=total_bill+product.product.price
                 else:
                     product.delete()
-            return render(request,"cart/checkout-page.html",context={"product": items, "total_bill": total_bill})
+            if total_bill == 0:
+                return redirect('home_cart')
+            else:    
+                return render(request,"cart/checkout-page.html",context={"product": items, "total_bill": total_bill})
         else:
             return redirect('login_request')
     else:
@@ -89,7 +92,7 @@ def confirm_order(request):
                             Orders.objects.create(customer=request.user, product_ordered=product.product)
                             UsersOrders.objects.create(customer=request.user, product_ordered=product.product)
                             ID=product.product.id
-                            stock_ID=product.product.stock
+                            stock_ID=Product.objects.get(id=ID).stock
                             new=Product.objects.get(id=ID)
                             new.stock = stock_ID - 1
                             new.save()
