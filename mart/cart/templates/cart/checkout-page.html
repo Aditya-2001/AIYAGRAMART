@@ -32,14 +32,26 @@
                 </button>
                 <a class="navbar-brand" href="{% url 'home' %}"><strong>AIYAGRAMART</strong></a>
             </div></div></nav>
+               
+               <H1 style="text-align: center;">ORDER SUMMARY</H1>
                <br>
                <br>
-            
+               <table style="margin-left: auto; margin-right: auto;">
+                <tr>
+                    <th>Product Name</th>
+                    <th></th>
+                    <th>Quantity Ordered</th>
+                </tr>
                 {% for key,value in product.items %}
-                {{key}},{{value}}<br>
+                <tr>
+                    <td>{{key}}</td>
+                    <td></td>
+                    <td>{{value}}</td>
+                </tr>
                 {% endfor %}
-                {{total_bill}}
-                
+                </table>
+                <br>
+                <H2 style="text-align: center;">Total Bill is: {{total_bill}}</H2>
                 <br><br><br>
                 <form action="#" method="POST" enctype="multipart/form-data">
                     {% csrf_token %}
