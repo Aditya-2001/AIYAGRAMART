@@ -33,7 +33,7 @@ class Orders(models.Model):
     created_at=models.DateTimeField(default=datetime.now(), blank=True)
 
     def __str__(self):
-        return self.customer.username
+        return self.product_ordered.name
 
 class UsersOrders(models.Model):
     customer=models.ForeignKey(User, on_delete=models.CASCADE, default=0)

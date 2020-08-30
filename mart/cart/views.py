@@ -5,6 +5,7 @@ from django.contrib.auth import login,authenticate,logout
 from .models import CartItems
 from home.models import Orders,UsersOrders,Product
 from datetime import date
+import datetime
 
 # Create your views here.
 
@@ -64,7 +65,8 @@ def checkout_request(request):
 def confirm_order(request):
     if request.method == "POST":
         if request.user.is_authenticated:
-            transaction_id=123
+            now = datetime.datetime.now()
+            transaction_id=now.strftime("%Y%m%d%H%M%S")
             products=CartItems.objects.filter(customer=request.user).order_by("-added_at")
             items={}
             total_bill=0
@@ -89,8 +91,8 @@ def confirm_order(request):
                     if key==product.product.name:
                         if  items[key]>0:
                             items[key] = items[key] - 1
-                            Orders.objects.create(customer=request.user, product_ordered=product.product)
-                            UsersOrders.objects.create(customer=request.user, product_ordered=product.product)
+                            Orders.objects.create(customer=request.user, product_ordered=product.product, transaction_id_order=transaction_id)
+                            UsersOrders.objects.create(customer=request.user, product_ordered=product.product, transaction_id_user=transaction_id)
                             ID=product.product.id
                             stock_ID=Product.objects.get(id=ID).stock
                             new=Product.objects.get(id=ID)
