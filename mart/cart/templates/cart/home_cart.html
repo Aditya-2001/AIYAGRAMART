@@ -32,7 +32,13 @@
                 </button>
                 <a class="navbar-brand" href="{% url 'home' %}"><strong>AIYAGRAMART</strong></a>
             </div></div></nav>
-               
+               <br>
+               <br>
+               {% if products %}
+               <H1 style="text-align: center;">Thanks for visiting us!!</H1>
+               {% else %}
+               <H1 style="text-align: center;">No item in the cart, please add some items to checkout</H1>
+               {% endif %}
             <div class="row">
                 {% for product in products %}
                 <div class="col-md-4 text-center col-sm-6 col-xs-6">

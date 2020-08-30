@@ -58,6 +58,9 @@
         {% if user.is_authenticated%}
         <a href="{% url 'logout_request' %}"><strong>Logout</strong></a>
         {% endif %}
+        <ul class="nav navbar-nav navbar-left">
+            <li><a href="{% url 'carttemp' %}">CART</a></li>
+        </ul>
         <ul class="nav navbar-nav navbar-right">
           {% if user.is_authenticated %}
           <li style="color: white;"><a href="{% url 'home' %}">Hi, {{request.user}}</a></li>
