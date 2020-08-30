@@ -170,8 +170,4 @@ def my_order(request):
         orders=UsersOrders.objects.filter(customer=request.user).order_by("-created_at")
         return render(request,"home/my_orders.html",context={"orders": orders})
     else:
-<<<<<<< HEAD
         return redirect('login_request')
-=======
-        return redirect('login_request')
->>>>>>> d124680caf25feb7bd0c9157c8dc27da5ddb4697
