@@ -155,7 +155,9 @@ def add_to_cart(request):
             product_details=Product.objects.get(id=ID)
             stock_of_product=Product.objects.get(id=ID).stock
             if stock_of_product > 0:
-                CartItems.objects.create(customer=user, product=product_details)
+                user = request.user
+                CartItems.objects.create(customer=request.user, product=product_details)
+                return redirect('home')
             else:
                 return redirect('home')
         else:
