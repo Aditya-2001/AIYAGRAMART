@@ -2,6 +2,7 @@ from django.shortcuts import render,HttpResponse,redirect
 from django.contrib.auth.models import User
 from django.contrib import messages
 from django.contrib.auth import login,authenticate,logout
+from home.models import Orders
 # Create your views here.
 
 def login_request_backend(request):
@@ -14,7 +15,8 @@ def mart(request):
     return redirect('home')
 
 def backend_home(request):
-    return render(request,"backend/backend_home.html",context={})
+    orders=Orders.objects.all()
+    return render(request,"backend/backend_home.html",context={"orders": orders})
 
 def logout_request_backend(request):
     logout(request)

@@ -166,5 +166,8 @@ def add_to_cart(request):
         return redirect('home')
 
 def my_order(request):
-    orders=UsersOrders.objects.filter(customer=request.user).order_by("-created_at")
-    return render(request,"home/my_orders.html",context={"orders": orders})
+    if request.user.is_authenticated:
+        orders=UsersOrders.objects.filter(customer=request.user).order_by("-created_at")
+        return render(request,"home/my_orders.html",context={"orders": orders})
+    else:
+        return redirect('login_request')

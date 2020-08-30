@@ -44,47 +44,26 @@
                     {% endif %}
                     <br>
 					<li><a href="{% url 'mart' %}">Go to Mart</a></li>
-					<li><a href="#">Add Product</a></li>
+					<li><a href="{% url 'merchant_home' %}">Add Product</a></li>
 					<li><a href="{% url 'logout_request_backend' %}">Logout</a></li>
 				</ul>
             </nav>
-            <h1>Just to show a table but to be edited later on.</h1>
+            <br><br>
+            <h1 style="text-align: center;">You can see all the order list here</h1>
+            <br><br>
             <table>
                 <tr>
-                  <th>Company</th>
-                  <th>Contact</th>
-                  <th>Country</th>
+                  <th style="background-color: black;">Product Name</th>
+                  <th style="background-color: black;">Customer Name</th>
+                  <th style="background-color: black;">Transaction Id</th>
                 </tr>
+                {% for orders in orders %}
                 <tr>
-                  <td>Alfreds Futterkiste</td>
-                  <td>Maria Anders</td>
-                  <td>Germany</td>
+                  <td>{{orders.customer.username}}</td>
+                  <td>{{orders.product_ordered.name}}</td>
+                  <td>{{orders.transaction_id_order}}</td>
                 </tr>
-                <tr>
-                  <td>Centro comercial Moctezuma</td>
-                  <td>Francisco Chang</td>
-                  <td>Mexico</td>
-                </tr>
-                <tr>
-                  <td>Ernst Handel</td>
-                  <td>Roland Mendel</td>
-                  <td>Austria</td>
-                </tr>
-                <tr>
-                  <td>Island Trading</td>
-                  <td>Helen Bennett</td>
-                  <td>UK</td>
-                </tr>
-                <tr>
-                  <td>Laughing Bacchus Winecellars</td>
-                  <td>Yoshi Tannamuri</td>
-                  <td>Canada</td>
-                </tr>
-                <tr>
-                  <td>Magazzini Alimentari Riuniti</td>
-                  <td>Giovanni Rovelli</td>
-                  <td>Italy</td>
-                </tr>
+                {% endfor %}
               </table>
               
 
